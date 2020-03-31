@@ -27,14 +27,41 @@ function Pets({ setSelectedPet }) {
         }
     }
 
+    function getCaret(column) {
+        if (sort.column === column) {
+            if (sort.ascending) {
+                return (
+                    <>&#9660;</>
+                )
+            }
+            return (
+                <>&#9650;</>
+            )
+        }
+    }
+
     return (
         <div className={'pets'}>
             <h2>List of Pets</h2>
             <table>
                 <thead>
                     <tr>
-                        <th><button onClick={updateSort.bind(this, 'id')}>Pet ID</button></th>
-                        <th><button onClick={updateSort.bind(this, 'name')}>Pet Name</button></th>
+                        <th>
+                            <button 
+                                onClick={updateSort.bind(this, 'id')}
+                                className={sort.column === 'id' ? 'active' : ''}
+                            >
+                                Pet ID {getCaret('id')}
+                            </button>
+                        </th>
+                        <th>
+                            <button 
+                                onClick={updateSort.bind(this, 'name')}
+                                className={sort.column === 'name' ? 'active' : ''}
+                            >
+                                Pet Name {getCaret('name')}
+                            </button>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>

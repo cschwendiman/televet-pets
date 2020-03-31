@@ -1,0 +1,7 @@
+.pets-app {
+    display: flex;
+}
+
+.pets-app > div {
+    flex: 1 1 0px;
+}

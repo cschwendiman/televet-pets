@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function Pets({ setOpenPet }) {
+function Pets({ setSelectedPet }) {
     const [ pets, setPets ] = useState([])
 
     useEffect(() => {
@@ -11,24 +11,26 @@ function Pets({ setOpenPet }) {
 
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Pet ID</th>
-                    <th>Pet Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {pets.map((pet) => {
-                    return (
-                        <tr>
-                            <td>{pet.id}</td>
-                            <td>{pet.name}</td>
-                        </tr>
-                    )
-                })}
-            </tbody>
-        </table>
+        <div className={'pets'}>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pet ID</th>
+                        <th>Pet Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {pets.map((pet) => {
+                        return (
+                            <tr key={pet.id}>
+                                <td>{pet.id}</td>
+                                <td>{pet.name}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>
     )
     
 }

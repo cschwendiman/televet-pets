@@ -15,18 +15,21 @@ function Pet({ selectedPet }) {
 
     return (
         <div className={'pet'}>
-            {pet &&
+            {pet.id &&
                 (
-                    <dl>
-                        {Object.entries(pet).map(([key, value]) => {
-                            return (
-                                <React.Fragment key={key+pet.id}>
-                                    <dt>{key}</dt>
-                                    <dd>{value}</dd>
-                                </React.Fragment>
-                            )
-                        })}
-                    </dl>
+                    <>
+                        <h2>Pet Information</h2>
+                        <dl>
+                            {Object.entries(pet).map(([key, value]) => {
+                                return (
+                                    <React.Fragment key={key+pet.id}>
+                                        <dt>{key}</dt>
+                                        <dd>{value}</dd>
+                                    </React.Fragment>
+                                )
+                            })}
+                        </dl>
+                    </>
                 )
             }
         </div>

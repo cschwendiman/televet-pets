@@ -4,4 +4,27 @@
 
 .pets-app > div {
     flex: 1 1 0px;
+    padding: 0 32px;
+}
+
+table, th, td {
+    border: 1px solid #bbbbbb;
+    border-collapse: collapse;
+    padding: 4px;
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+dt {
+    font-weight: bold;
+    text-transform: capitalize;
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom: 8px;
+}
+
+dd {
+    margin: 8px 0 32px;
 }

@@ -26,6 +26,7 @@ function Pets({ setSelectedPet }) {
 
     return (
         <div className={'pets'}>
+            <h2>List of Pets</h2>
             <table>
                 <thead>
                     <tr>

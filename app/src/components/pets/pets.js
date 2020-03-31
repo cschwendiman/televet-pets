@@ -6,21 +6,24 @@ function Pets({ setSelectedPet }) {
         column: 'id',
         ascending: true
     })
+    const [ page, setPage ] = useState(0)
 
     useEffect(() => {
-        fetch(`/pets?sort=${sort.column}&ascending=${sort.ascending}`)
+        fetch(`/pets?sort=${sort.column}&ascending=${sort.ascending}&page=${page}`)
         .then(res => res.json())
         .then(setPets)
-    }, [sort])
+    }, [sort, page])
     
     function updateSort(column) {
         if (sort.column === column) {
             setSort({ ...sort, ascending: !sort.ascending})
+            setPage(0);
         } else {
             setSort({
                 column,
                 ascending: true
             })
+            setPage(0);
         }
     }
 
@@ -45,6 +48,15 @@ function Pets({ setSelectedPet }) {
                     })}
                 </tbody>
             </table>
+            <div className={'pagination'}>
+                {page > 0 &&
+                    <button className='prev' onClick={setPage.bind(this, page-1)}>&lt;&lt; Previous Page</button>
+                }
+                {
+                    // TODO Figure out how to have max pages here
+                }
+                <button className='next' onClick={setPage.bind(this, page+1)}>Next Page &gt;&gt;</button>
+            </div>
         </div>
     )
     

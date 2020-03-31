@@ -6,8 +6,9 @@ var pets = require('../data/denormalizedPets.json');
 
 /* GET all pets */
 router.get('/', function(req, res, next) {
-  const column = req.query.sort
-  const ascending = req.query.ascending
+  const column = req.query.sort || 'id'
+  const ascending = req.query.ascending || 'true'
+  const page = req.query.page || 0
   // This is awful, do all of this with sql
   if (column && ascending) {
     res.json(pets.sort((a, b) => {
@@ -19,9 +20,9 @@ router.get('/', function(req, res, next) {
       } else {
         return a[column] > b[column] ? -1 : 1
       }
-    }))
+    }).slice(page*10, (page*10)+10))
   } else {
-    res.json(pets);    
+    res.json(pets.slice(page*10, page*10+10));    
   }
 });
 

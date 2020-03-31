@@ -24,7 +24,7 @@ function Pets({ setSelectedPet }) {
                         return (
                             <tr key={pet.id}>
                                 <td>{pet.id}</td>
-                                <td>{pet.name}</td>
+                                <td><a href={`#${pet.id}`} onClick={setSelectedPet.bind(this, pet.id)}>{pet.name}</a></td>
                             </tr>
                         )
                     })}

@@ -4,7 +4,7 @@ import Pets from './components/pets/pets'
 import Pet from './components/pet/pet'
 
 function App() {
-  const [selectedPet, setSelectedPet] = useState(1)
+  const [selectedPet, setSelectedPet] = useState(0)
 
   return (
     <div className="pets-app">
